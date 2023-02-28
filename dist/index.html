@@ -8,33 +8,53 @@
 		</style>
 	</head>
 	<body>
-		<script type="module">
-			import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+	<script type="module">
+	import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
-			const scene = new THREE.Scene();
-			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	const scene = new THREE.Scene();
+	const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
-			const renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+	const renderer = new THREE.WebGLRenderer();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
 
-			const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-			const cube = new THREE.Mesh( geometry, material );
-			scene.add( cube );
+	const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+	const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } );
+	const cube = new THREE.Mesh( geometry, material );
+	scene.add( cube );
 
-			camera.position.z = 5;
+	const referenceGeometry = new THREE.BoxGeometry( 2, 1, 1 );
+	const referenceCube = new THREE.Mesh( referenceGeometry, material );
+	scene.add( referenceCube );
+	referenceCube.position.x = 0.5;
+	referenceCube.position.y = -1;
 
-			function animate() {
-				requestAnimationFrame( animate );
+	camera.position.z = 5;
 
-				cube.rotation.x += 0.01;
-				cube.rotation.y += 0.01;
+	const clock = new THREE.Clock();
 
-				renderer.render( scene, camera );
-			}
+	const axis = new THREE.Vector3(0,0,1);
+	const pivot = new THREE.Vector3(0.5,-0.5,0);
+	let theta = 0;
 
-			animate();
-		</script>
+	function animate() {
+		requestAnimationFrame( animate );
+
+		let dt = clock.getDelta();
+		
+		if (theta < Math.PI/2) {
+			cube.position.set(0,0,0);
+			cube.position.sub(pivot);
+			cube.position.applyAxisAngle(axis,-theta);
+			cube.position.add(pivot);
+			cube.setRotationFromAxisAngle(axis,-theta);
+			theta = theta+dt > Math.PI/2? Math.PI/2: theta+dt;
+		}
+
+		renderer.render( scene, camera );
+	}
+
+	animate();
+	</script>
 	</body>
 </html>
