@@ -12,46 +12,94 @@
 	import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 
 	const scene = new THREE.Scene();
-	const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+	const camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
 
 	const renderer = new THREE.WebGLRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	document.body.appendChild( renderer.domElement );
+	renderer.setSize(window.innerWidth,window.innerHeight);
+	document.body.appendChild(renderer.domElement);
 
-	const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-	const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } );
-	const cube = new THREE.Mesh( geometry, material );
-	scene.add( cube );
+	const geometry = new THREE.BoxGeometry(1,1,1);
+	const material = new THREE.MeshBasicMaterial({color:0x00ff00});
+	const cube = new THREE.Mesh(geometry,material);
+	cube.position.set(-1,1,0);
+	scene.add(cube);
 
-	const referenceGeometry = new THREE.BoxGeometry( 2, 1, 1 );
-	const referenceCube = new THREE.Mesh( referenceGeometry, material );
-	scene.add( referenceCube );
-	referenceCube.position.x = 0.5;
-	referenceCube.position.y = -1;
+	let positions = [
+		[-1,0,0],
+		[-1,-1,0],
+		[0,-1,0],
+		[0,-2,0],
+		[1,-2,0],
+		[1,-3,0],
+		[2,-3,0],
+		[2,-4,0],
+		[2,-4,1],
+		[2,-5,1],
+		[2,-5,2]
+	];
 
-	camera.position.z = 5;
+	const staircaseMaterial = new THREE.MeshBasicMaterial({color:0x00ff00,wireframe:true});
+	for (let i=0; i <positions.length; i++){
+		const staircaseElement = new THREE.Mesh(geometry,staircaseMaterial);
+		staircaseElement.position.fromArray(positions[i]);
+		scene.add(staircaseElement);
+	}	
+
+	const d = 4;
+	camera.position.x = d;
+	camera.position.y = 0;
+	camera.position.z = d;
+	camera.lookAt(0,-3,0);
 
 	const clock = new THREE.Clock();
 
-	const axis = new THREE.Vector3(0,0,1);
-	const pivot = new THREE.Vector3(0.5,-0.5,0);
 	let theta = 0;
 
-	function animate() {
-		requestAnimationFrame( animate );
+	let idx = 0;
 
-		let dt = clock.getDelta();
-		
-		if (theta < Math.PI/2) {
-			cube.position.set(0,0,0);
-			cube.position.sub(pivot);
-			cube.position.applyAxisAngle(axis,-theta);
-			cube.position.add(pivot);
-			cube.setRotationFromAxisAngle(axis,-theta);
-			theta = theta+dt > Math.PI/2? Math.PI/2: theta+dt;
+	let a = 0.2;
+	let b = 1.0;
+
+	function rotate(theta,idx){
+
+		let start = new THREE.Vector3(-1,1,0);
+		let pivot = new THREE.Vector3(-0.5,0.5,0.5);
+		let axis = new THREE.Vector3(0,0,0);
+
+		if (idx < 3){
+			start.addScaledVector(new THREE.Vector3(1,-1,0),idx)
+			pivot.addScaledVector(new THREE.Vector3(1,-1,0),idx)
+			axis.z = 1;
+		} else {
+			start.addScaledVector(new THREE.Vector3(1,-1,0),3).addScaledVector(new THREE.Vector3(0,-1,1),idx-3)
+			pivot.addScaledVector(new THREE.Vector3(1,-1,0),3).addScaledVector(new THREE.Vector3(0,-1,1),idx-3)
+			theta = -theta;
+			axis.x = 1;
 		}
 
-		renderer.render( scene, camera );
+		cube.position.copy(start);
+		cube.position.sub(pivot);
+		cube.position.applyAxisAngle(axis,-theta);
+		cube.position.add(pivot);
+		cube.setRotationFromAxisAngle(axis,-theta);
+	}
+
+	function animate() {
+		requestAnimationFrame(animate);
+
+		let dt = clock.getDelta();
+
+		if (cube.position.y > -5){
+			theta = theta+(a+b*theta)*dt > Math.PI? Math.PI: theta+(a+b*theta)*dt;
+			rotate(theta,idx);
+		}
+
+		if (theta == Math.PI){
+			theta = 0
+			idx += 1
+		}
+
+		renderer.render(scene,camera);
 	}
 
 	animate();
