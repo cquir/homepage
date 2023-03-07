@@ -18,15 +18,15 @@
 			{
 				position: fixed;
 			 	top: 0;
-				left: 0;
+				left: 25%;
 				outline: none;
 			}
 
 			.section 
 			{
 				display: flex;	
-				align-items: center;
-				height: 100vh;
+				align-items: flex-end;
+				height: 50vh;
 				position: relative; 
 				font-family: 'Cabin', sans-serif;
 				color: #ffeded;
@@ -35,7 +35,29 @@
 				padding-left: 10%;
 				padding-right: 10%;
 			}
-		</style>
+
+			img
+			{
+				align-items: center;
+				height: 5vh;
+				padding-left:0.5%;
+				padding-right:0.5%;
+			}
+
+			.links
+			{
+				padding-left: 10.0%;
+			}
+
+			.summary
+			{
+				align-items: center;
+				font-family: 'Cabin', sans-serif;
+				color: #ffeded;
+				padding-left: 10.5%;
+			}
+
+			</style>
 	</head>
 	<body>
 
@@ -44,7 +66,18 @@
 	<section class="section">
 		<h1>Christian<br/>Quirouette</h1>
 	</section>
-	
+
+	<div class="links">
+		<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img src="images/LI-logo.png"></a>
+		<a href="https://www.github.com/cquir"><img src="images/github-mark-white.png"></a>
+	</div>
+
+	<!--
+	<div class="summary">
+		<p>Bla bla bla.</p>
+	</div>
+	-->
+
 	<script type="module">
 
 	import * as THREE from 'https://unpkg.com/three/build/three.module.js';
@@ -120,6 +153,7 @@
 	const renderer = new THREE.WebGLRenderer({
 		canvas : canvas,
 		alpha: true,
+		antialias: true,
 	});
 
 	renderer.setSize(sizes.width,sizes.height);
