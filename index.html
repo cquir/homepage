@@ -18,58 +18,88 @@
 			{
 				position: fixed;
 			 	top: 0;
-				left: 25%;
+				left: 75%;
 				outline: none;
 			}
 
-			.section 
+			.name 
 			{
-				display: flex;	
-				align-items: flex-end;
-				height: 50vh;
+				display: flex;
 				position: relative; 
+				align-items: center;
+				height: 30vh;
+				margin: 0 35vw 0 10vw;
 				font-family: 'Cabin', sans-serif;
 				color: #ffeded;
 				text-transform: uppercase;
-				font-size: 7vmin;
-				padding-left: 10%;
-				padding-right: 10%;
-			}
-
-			img
-			{
-				align-items: center;
-				height: 5vh;
-				padding-left:0.5%;
-				padding-right:0.5%;
-			}
+				font-size: 7vh;
+				/*background: #615cbf;*/
+            }
 
 			.links
 			{
-				padding-left: 10.0%;
+				display: flex;
+				position: relative;
+				align-items: center;
+				margin: 0 35vw 0 10vw;
+				gap: 0.5vw;
+				padding-left: 0.2vw;
+				/*background: #ff577d;*/
 			}
 
-			.summary
+			img.logo
 			{
-				align-items: center;
+				max-height: 5vh;
+			}
+
+			.highlights
+			{
+				display: flex;
+				flex-direction: column;
+				position: relative;
+				margin: 0 35vw 0 10vw;
 				font-family: 'Cabin', sans-serif;
 				color: #ffeded;
-				padding-left: 10.5%;
+				white-space: normal;
+				font-size: 3vh;
+				/*background: #0a9cf5;*/
 			}
 
-			</style>
+			a.publications:link
+			{
+				color: #ffeded;
+				text-decoration: none;
+			}
+
+			a.publications:visited
+			{
+				color: #ffeded;
+				text-decoration: none;
+			}
+
+			a.publications:hover
+			{
+				color: #50fa7b;
+				text-decoration: underline;
+			}
+			
+			a.publications:active {
+				color: #ffeded;
+				text-decoration: none;
+			}
+           	</style>
 	</head>
 	<body>
 
 	<canvas class="webgl"></canvas>
 
-	<section class="section">
-		<h1>Christian<br/>Quirouette</h1>
+	<section class="name">
+		<h1>Christian Quirouette</h1>
 	</section>
 
 	<div class="links">
-		<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img src="images/LI-logo.png"></a>
-		<a href="https://www.github.com/cquir"><img src="images/github-mark-white.png"></a>
+		<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img class="logo" src="images/LI-logo.png"></a>
+		<a href="https://www.github.com/cquir"><img class="logo" src="images/github-mark-white.png"></a>
 	</div>
 
 	<!--
@@ -77,6 +107,16 @@
 		<p>Bla bla bla.</p>
 	</div>
 	-->
+
+    <div class="highlights">
+        <h1>Highlighted projects</h1>
+		<a class="publications" href="https://doi.org/10.1371/journal.pcbi.1007705">
+			<p>
+				<b>A mathematical model describing the localization and spread of influenza A virus infection within the human respiratory tract</b><br>
+				C Quirouette, NP Younis, MB Reddy, CAA Beauchemin
+			</p>
+		</a>
+    </div>
 
 	<script type="module">
 
@@ -92,7 +132,7 @@
 	 * Objects
 	 */
 	const geometry = new THREE.BoxGeometry(1,1,1);
-	const material = new THREE.MeshBasicMaterial({color:0x00ff00});
+	const material = new THREE.MeshBasicMaterial({color:0x50fa7b});
 	const cube = new THREE.Mesh(geometry,material);
 	cube.position.set(-1,1,0);
 	scene.add(cube);
@@ -111,7 +151,7 @@
 		[2,-5,2]
 	];
 
-	const staircaseMaterial = new THREE.MeshBasicMaterial({color:0x00ff00,wireframe:true});
+	const staircaseMaterial = new THREE.MeshBasicMaterial({color:0x50fa7b,wireframe:true});
 	for (let i=0; i <positions.length; i++){
 		const staircaseElement = new THREE.Mesh(geometry,staircaseMaterial);
 		staircaseElement.position.fromArray(positions[i]);
@@ -122,13 +162,13 @@
 	 * Sizes
 	 */
 	 const sizes = {
-		width: window.innerWidth,
+		width: 0.25*window.innerWidth,
 		height: window.innerHeight
 	}
 
 	window.addEventListener('resize', () =>
 	{
-		sizes.width = window.innerWidth;
+		sizes.width = 0.25*window.innerWidth;
 		sizes.height = window.innerHeight;
 
 		// Update camera
@@ -231,7 +271,7 @@
 			step += direction;
 		}
 
-		// Reset for endless loop 
+		// Reset for loop 
 
 		if (step == 5){
 			step = 4;
