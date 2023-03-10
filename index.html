@@ -3,101 +3,17 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Christian Quirouette</title>
-		<style>
-			body 
-			{
-				margin: 0;
-			}
-
-			html
-			{
-				background: #1e1a20;
-			}
-
-			.webgl 
-			{
-				position: fixed;
-			 	top: 0;
-				left: 75%;
-				outline: none;
-			}
-
-			.name 
-			{
-				display: flex;
-				position: relative; 
-				align-items: center;
-				height: 30vh;
-				margin: 0 35vw 0 10vw;
-				font-family: 'Cabin', sans-serif;
-				color: #ffeded;
-				text-transform: uppercase;
-				font-size: 7vh;
-				/*background: #615cbf;*/
-            }
-
-			.links
-			{
-				display: flex;
-				position: relative;
-				align-items: center;
-				margin: 0 35vw 0 10vw;
-				gap: 0.5vw;
-				padding-left: 0.2vw;
-				/*background: #ff577d;*/
-			}
-
-			img.logo
-			{
-				max-height: 5vh;
-			}
-
-			.highlights
-			{
-				display: flex;
-				flex-direction: column;
-				position: relative;
-				margin: 0 35vw 0 10vw;
-				font-family: 'Cabin', sans-serif;
-				color: #ffeded;
-				white-space: normal;
-				font-size: 3vh;
-				/*background: #0a9cf5;*/
-			}
-
-			a.publications:link
-			{
-				color: #ffeded;
-				text-decoration: none;
-			}
-
-			a.publications:visited
-			{
-				color: #ffeded;
-				text-decoration: none;
-			}
-
-			a.publications:hover
-			{
-				color: #50fa7b;
-				text-decoration: underline;
-			}
-			
-			a.publications:active {
-				color: #ffeded;
-				text-decoration: none;
-			}
-           	</style>
+		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 
 	<canvas class="webgl"></canvas>
 
-	<section class="name">
+	<section class="left name">
 		<h1>Christian Quirouette</h1>
 	</section>
 
-	<div class="links">
+	<div class="left links">
 		<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img class="logo" src="images/LI-logo.png"></a>
 		<a href="https://www.github.com/cquir"><img class="logo" src="images/github-mark-white.png"></a>
 	</div>
@@ -108,7 +24,7 @@
 	</div>
 	-->
 
-    <div class="highlights">
+    <div class="left highlights">
         <h1>Highlighted projects</h1>
 		<a class="publications" href="https://doi.org/10.1371/journal.pcbi.1007705">
 			<p>

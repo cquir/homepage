@@ -1,0 +1,59 @@
+* {
+    font-family: 'Cabin', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+html {
+    background: #1e1a20;
+}
+
+.webgl {
+    position: fixed;
+    top: 0;
+    left: 75%;
+    outline: none;
+}
+
+.left {
+    display: flex;
+    position: relative;
+    margin: 0 35vw 0 10vw;
+}
+
+.name {
+    align-items: center;
+    height: 30vh;
+    color: #ffeded;
+    text-transform: uppercase;
+    font-size: 7vh;
+}
+
+.links {
+    align-items: center;
+    gap: 0.5vw;
+    padding-left: 0.2vw;
+}
+
+.logo {
+    max-height: 5vh;
+}
+
+.highlights {
+    flex-direction: column;
+    color: #ffeded;
+    white-space: normal;
+    font-size: 3vh;
+}
+
+a.publications:link, a.publications:visited, a.publications.active {
+    color: #ffeded;
+    text-decoration: none;
+}
+
+a.publications:hover {
+    color: #50fa7b;
+    text-decoration: underline;
+}
