@@ -1,9 +1,11 @@
 * {
     font-family: 'Cabin', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
+    padding: 0;
 }
 
 html {
@@ -13,42 +15,54 @@ html {
 .webgl {
     position: fixed;
     top: 0;
-    left: 75%;
+    left: 76vw;
     outline: none;
 }
 
-.left {
+.container {
     display: flex;
     position: relative;
-    margin: 0 35vw 0 10vw;
+    margin: 0 24vw 0 20px;
 }
 
-.name {
-    align-items: center;
-    height: 30vh;
-    color: #ffeded;
+header {
+    align-items: flex-end;
+    height: 140px;
     text-transform: uppercase;
-    font-size: 7vh;
+    color: #ffeded;
+    font-size: 2.0rem;
+}
+
+header h1 {
+    margin: 0 0 -6px -3px;
 }
 
 .links {
-    align-items: center;
-    gap: 0.5vw;
-    padding-left: 0.2vw;
+    display: flex;
+    position: relative;
+    gap: 10px;
+    padding-left: 10px;
 }
 
-.logo {
-    max-height: 5vh;
+img.logo {
+    height: 30px;
+    margin: 0;
+}
+
+.summary {
+    color: #ffeded;
+    font-size: 1.5rem;
 }
 
 .highlights {
     flex-direction: column;
     color: #ffeded;
     white-space: normal;
-    font-size: 3vh;
+    font-size: 1rem;
+    max-width: 700px;
 }
 
-a.publications:link, a.publications:visited, a.publications.active {
+a.publications:link, a.publications:visited {
     color: #ffeded;
     text-decoration: none;
 }

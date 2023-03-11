@@ -7,33 +7,37 @@
 	</head>
 	<body>
 
-	<canvas class="webgl"></canvas>
+	<header class="container">
+		<h1 class="test">Christian Quirouette</h1>
+		<div class="links">
+			<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img class="logo" src="images/LI-logo.png"></a>
+			<a href="https://www.github.com/cquir"><img class="logo" src="images/github-mark-white.png"></a>
+		</div>
+	</header>
 
-	<section class="left name">
-		<h1>Christian Quirouette</h1>
-	</section>
-
-	<div class="left links">
-		<a href="https://linkedin.com/in/christian-quirouette-791b53193/"><img class="logo" src="images/LI-logo.png"></a>
-		<a href="https://www.github.com/cquir"><img class="logo" src="images/github-mark-white.png"></a>
+	<div class="container summary">
+		<p>
+			Highly adaptable researcher with 4+ years experience solving problems, mainly in virology, using computational or mathematical methods.
+		</p>
 	</div>
 
-	<!--
-	<div class="summary">
-		<p>Bla bla bla.</p>
-	</div>
-	-->
-
-    <div class="left highlights">
+    <div class="container highlights">
         <h1>Highlighted projects</h1>
 		<a class="publications" href="https://doi.org/10.1371/journal.pcbi.1007705">
 			<p>
-				<b>A mathematical model describing the localization and spread of influenza A virus infection within the human respiratory tract</b><br>
+				<b>A mathematical model describing the localization and spread of influenza A virus infection within the human respiratory tract</b>
 				C Quirouette, NP Younis, MB Reddy, CAA Beauchemin
+			</p>
+		</a>
+		<a class="publications" href="https://arxiv.org/abs/2208.00637">
+			<p>
+				<b>Stochastic failure of cell infection post viral entry: Implications for infection outcomes and antiviral therapy</b>
+				C Quirouette, D Cresta, J Li, KP Wilkie, H Liang, CAA Beauchemin 
 			</p>
 		</a>
     </div>
 
+	<canvas class="webgl"></canvas>
 	<script type="module">
 
 	import * as THREE from 'https://unpkg.com/three/build/three.module.js';
@@ -100,9 +104,9 @@
 	 * Camera
 	 */
 	const camera = new THREE.PerspectiveCamera(35,sizes.width/sizes.height,0.1,100);
-	const cameraDistance = 10;
+	const cameraDistance = 8;
 	camera.position.set(cameraDistance,cameraDistance,cameraDistance);
-	camera.lookAt(0,-3,0);
+	camera.lookAt(0,-2.5,0);
 	/**
 	 * Renderer
 	 */	
@@ -115,24 +119,6 @@
 	renderer.setSize(sizes.width,sizes.height);
 	renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
 	document.body.appendChild(renderer.domElement);
-
-	/**
-	 * Scroll
-	 */
-
-	/**
-	let scrollY = window.scrollY;
-	let section = 1;
-	
-	window.addEventListener('scroll', () =>
-	{
-		scrollY = window.scrollY;
-		section = Math.round(0.5*scrollY/sizes.height);
-		console.log(section);
-
-		
-	})
-	**/
 
 	// Clock
 	const clock = new THREE.Clock();
@@ -147,9 +133,6 @@
 
 	function animate() {
 		requestAnimationFrame(animate);
-
-		//camera.position.y = cameraDistance-0.5*5*scrollY/sizes.height;
-		//camera.lookAt(0,camera.position.y-cameraDistance,0);
 
 		let dt = clock.getDelta();
 
@@ -187,7 +170,7 @@
 			step += direction;
 		}
 
-		// Reset for loop 
+		// Reset
 
 		if (step == 5){
 			step = 4;
