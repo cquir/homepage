@@ -1,22 +1,28 @@
 * {
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     box-sizing: border-box;
 }
+
+h1 {
+    font-weight: 500;
+}
+
 
 body {
     margin: 0;
     padding: 0;
 }
 
-html {
-    background: #1e1a20;
-}
-
 .webgl {
     position: fixed;
     top: 0;
-    left: 76vw;
+    left: 75vw;
     outline: none;
+}
+
+html {
+    background: #1e1a20;
 }
 
 .container {

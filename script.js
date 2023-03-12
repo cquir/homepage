@@ -65,6 +65,7 @@ const camera = new THREE.PerspectiveCamera(35,sizes.width/sizes.height,0.1,100);
 const cameraDistance = 8;
 camera.position.set(cameraDistance,cameraDistance,cameraDistance);
 camera.lookAt(0,-2.5,0);
+
 /**
  * Renderer
  */	
@@ -103,17 +104,13 @@ function animate() {
         let axis = new THREE.Vector3(0,0,0);
 
         if (step < 3){
-
             start.addScaledVector(new THREE.Vector3(1,-1,0),step);
             pivot.addScaledVector(new THREE.Vector3(1,-1,0),step);
             axis.z = 1;
-
         } else {
-
             start.addScaledVector(new THREE.Vector3(1,-1,0),3).addScaledVector(new THREE.Vector3(0,-1,1),step-3);
             pivot.addScaledVector(new THREE.Vector3(1,-1,0),3).addScaledVector(new THREE.Vector3(0,-1,1),step-3);
             axis.x = 1;
-
         }
 
         cube.position.copy(start);
@@ -129,7 +126,6 @@ function animate() {
     }
 
     // Reset
-
     if (step == 5){
         step = 4;
         direction = -1;
