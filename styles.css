@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-h1 {
+h1, b {
     font-weight: 500;
 }
 
@@ -28,7 +28,7 @@ html {
 .container {
     display: flex;
     position: relative;
-    margin: 0 24vw 0 20px;
+    margin: 0 30vw 0 20px;
 }
 
 header {
