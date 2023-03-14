@@ -8,27 +8,50 @@ h1, b {
     font-weight: 500;
 }
 
-
 body {
     margin: 0;
     padding: 0;
-}
-
-.webgl {
-    position: fixed;
-    top: 0;
-    left: 75vw;
-    outline: none;
 }
 
 html {
     background: #1e1a20;
 }
 
+.webgl {
+    position: fixed;
+    top: 0;
+    outline: none;
+}
+
+@media screen and (orientation:portrait){
+    .webgl {
+        left: 0;
+        opacity: 0.5;
+    }
+}
+
+@media screen and (orientation:landscape){
+    .webgl {
+        left: 75vw;
+    }
+}
+
 .container {
     display: flex;
     position: relative;
-    margin: 0 30vw 0 20px;
+    z-index: 1;
+}
+
+@media screen and (orientation:portrait){
+    .container {
+        margin: 0 0 0 20px;
+    }
+}
+
+@media screen and (orientation:landscape){
+    .container {
+        margin: 0 30vw 0 20px;
+    }
 }
 
 header {

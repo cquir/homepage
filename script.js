@@ -39,14 +39,15 @@ for (let i=0; i <positions.length; i++){
 /**
  * Sizes
  */
+
  const sizes = {
-    width: 0.25*window.innerWidth,
+    width: window.innerWidth > window.innerHeight? 0.25*window.innerWidth: window.innerWidth,
     height: window.innerHeight
 }
 
 window.addEventListener('resize', () =>
 {
-    sizes.width = 0.25*window.innerWidth;
+    sizes.width = window.innerWidth > window.innerHeight? 0.25*window.innerWidth: window.innerWidth;
     sizes.height = window.innerHeight;
 
     // Update camera
