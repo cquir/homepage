@@ -2,7 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   sodipodi:docname="drug-actions.svg"
+   sodipodi:docname="favicon.svg"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
    version="1.1"
    id="svg2"
@@ -25,13 +25,13 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:window-height="2082"
-     inkscape:window-width="3840"
+     inkscape:window-height="932"
+     inkscape:window-width="1920"
      showgrid="false"
      inkscape:current-layer="g7858"
      inkscape:document-units="px"
-     inkscape:cy="362"
-     inkscape:cx="-100.75"
+     inkscape:cy="100"
+     inkscape:cx="46.25"
      inkscape:zoom="2"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -3969,10 +3969,11 @@
          x="479.59769"
          id="tspan7458"
          sodipodi:role="line" /></text></g><g
-     transform="translate(-1717.4205,-588.87113)"
+     transform="translate(-1716.9205,-589.87113)"
      id="g7039"><g
        transform="matrix(0.137791,0,0,0.137791,1250.41,700.674)"
-       id="g7858"><g
+       id="g7858"
+       style="display:inline"><g
          transform="matrix(0.71182599,0.06867361,-0.06867361,0.71182599,-186.83089,168.62206)"
          id="g5793-2-1-1-8-8" /><g
          transform="matrix(1.33333,0,0,1.33333,247.464,662.5)"
@@ -4115,17 +4116,17 @@
            id="use10851-6"
            transform="translate(148.71201,134.765)" /></g><text
          xml:space="preserve"
-         style="font-weight:600;font-size:890.551px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic Semi-Bold';letter-spacing:0px;word-spacing:0px;stroke-width:22.2638"
+         style="font-weight:600;font-size:890.551px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic Semi-Bold';letter-spacing:0px;word-spacing:0px;fill:#50fa7b;fill-opacity:1;stroke:#50fa7b;stroke-width:22.2638;stroke-opacity:1"
          x="3548.9309"
          y="58.483555"
          id="text1499-1-5-0"><tspan
            sodipodi:role="line"
            id="tspan1497-1-9-3"
-           style="stroke-width:22.2638"
+           style="fill:#50fa7b;fill-opacity:1;stroke:#50fa7b;stroke-width:22.2638;stroke-opacity:1"
            x="3548.9309"
            y="58.483555">Q</tspan></text><path
          id="path2667"
-         style="fill:none;stroke:#1a1a1a;stroke-width:123.432;stroke-dasharray:none;stroke-dashoffset:0"
+         style="fill:none;stroke:#50fa7b;stroke-width:123.432;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          d="m 4390.6688,-131.56013 a 479.99419,479.99419 0 0 1 -459.6913,341.86991 479.99419,479.99419 0 0 1 -479.9942,-479.99433 479.99419,479.99419 0 0 1 479.9942,-479.99406 479.99419,479.99419 0 0 1 459.7149,341.94808" /></g><rect
        ry="86.680565"
        y="643.29199"
