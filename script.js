@@ -6,11 +6,19 @@ const canvas = document.querySelector('canvas.webgl');
 // Scene
 const scene = new THREE.Scene();
 
+// Lighting
+const directionalLight = new THREE.DirectionalLight();
+const ambientLight = new THREE.AmbientLight();
+directionalLight.intensity = 0.5;
+ambientLight.intensity = 0.5;
+scene.add(directionalLight);
+scene.add(ambientLight);
+
 /**
  * Objects
  */
 const geometry = new THREE.BoxGeometry(1,1,1);
-const material = new THREE.MeshBasicMaterial({color:0x50fa7b});
+const material = new THREE.MeshStandardMaterial({color:0x50fa7b});
 const cube = new THREE.Mesh(geometry,material);
 cube.position.set(-1,1,0);
 scene.add(cube);
@@ -119,6 +127,7 @@ function animate() {
         cube.position.applyAxisAngle(axis,Math.pow(-1,step<3)*direction*theta+(direction==-1)*Math.PI);
         cube.position.add(pivot);
         cube.setRotationFromAxisAngle(axis,Math.pow(-1,step<3)*direction*theta+(direction==-1)*Math.PI);
+        
     }
 
     if (theta == Math.PI){
