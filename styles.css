@@ -91,12 +91,12 @@ img.logo {
     max-width: 700px;
 }
 
-a.publications:link, a.publications:visited {
+a.publications:link, a.publications:visited, a.repo:link, a.repo:visited {
     color: #ffeded;
     text-decoration: none;
 }
 
-a.publications:hover {
+a.publications:hover, a.repo:hover {
     color: #50fa7b;
     text-decoration: underline;
 }
